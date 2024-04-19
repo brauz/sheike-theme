@@ -1219,5 +1219,28 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "Brauz",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brauz_identifier",
+        "label": "Brauz identifier",
+        "info": "Required for Brauz integration. Specific to each store."
+      },
+      {
+        "type": "url",
+        "id": "brauz_find_in_store_script_url",
+        "label": "Brauz find in store script url",
+        "info": "Required for Brauz integration. Specific to each store."
+      },
+      {
+        "type": "url",
+        "id": "brauz_book_a_stylist_script_url",
+        "label": "Brauz book a stylist script url",
+        "info": "Required for Brauz integration. Specific to each store."
+      }
+    ]
   }
 ]
