@@ -171,8 +171,6 @@
     "brauz-book-a-stylist": {
       "type": "brauz-book-a-stylist",
       "settings": {
-        "brauz_identifier": "SHEIKE",
-        "brauz_book_a_stylist_script_url": "https://d3aq2u4yw77ivo.cloudfront.net/retailer-appointment/sheike/bookAStylist.sheike.prod.js",
         "brauz_button_ids": "book-appointment-button-1,book-appointment-button-2"
       }
     }
