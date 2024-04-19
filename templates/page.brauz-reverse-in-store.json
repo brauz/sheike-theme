@@ -176,6 +176,12 @@
       ],
       "disabled": true,
       "settings": { "enable_mobile": true, "enable_desktop": true }
+    },
+    "brauz-book-a-stylist": {
+      "type": "brauz-book-a-stylist",
+      "settings": {
+        "brauz_button_ids": "book-appointment-button"
+      }
     }
   },
   "order": [
@@ -186,6 +192,7 @@
     "image_with_text_zkazRg",
     "image_with_text_GQDpkf",
     "1658029115d381e177",
-    "main"
+    "main",
+    "brauz-book-a-stylist"
   ]
 }
