@@ -7339,7 +7339,7 @@ div iframe[title="Button to launch messaging window"] {
 .product__wishlist-btn {
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 0;
   font-size: 0.75rem;
   line-height: 1;
 }
@@ -13117,7 +13117,7 @@ input.location-search__field {
 .fs-add-to-cart-enabled
   .fs-buy-container
   .size-modal__content
-  .fs-cancel-purchase {
+  .fs-cancel-purchase, .wishlist-and-book-stylist-container {
   max-width: 20.625rem;
 }
 .size-modal__overlay {
@@ -13181,4 +13181,28 @@ input[disabled] + .size-modal__variant {
 }
 input[disabled] + .size-modal__variant span::after {
   content: none;
+}
+
+.btn--find-and-reserve-in-store {
+  background-color: white;
+  color: black;
+  margin-top: calc(-1.3rem + 8px);
+  margin-bottom: 1.5rem;
+}
+
+.btn--find-and-reserve-in-store:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.wishlist-and-book-stylist-container {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn--book-a-stylist {
+  font-size: 0.75rem;
+  line-height: 1;
 }
