@@ -1,0 +1,191 @@
+{
+  "wrapper": "div.page__template-information",
+  "sections": {
+    "top-links": {
+      "type": "information-page-top-links",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "sidebar": "information_template_sidebar"
+      }
+    },
+    "sidebar": {
+      "type": "information-page-sidebar",
+      "disabled": true,
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "sidebar": "information_template_sidebar"
+      }
+    },
+    "page_intro_W9fY9b": {
+      "type": "page-intro",
+      "disabled": true,
+      "settings": { "enable_mobile": true, "enable_desktop": true }
+    },
+    "main": {
+      "type": "information-page-content",
+      "blocks": {
+        "736113e3-2916-44d3-a0d9-746d02b51eda": {
+          "type": "button",
+          "settings": {
+            "title": "BOOK APPOINTMENT",
+            "url": "shopify://pages/book-stylist-appointment",
+            "style": "btn",
+            "icon": "false"
+          }
+        }
+      },
+      "block_order": ["736113e3-2916-44d3-a0d9-746d02b51eda"],
+      "disabled": true,
+      "settings": { "enable_mobile": true, "enable_desktop": true }
+    },
+    "rich_text_LnGTHP": {
+      "type": "rich-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "title": "",
+        "title_1_style": "h4",
+        "text": "<h1>Book A bespoke styling appointment</h1>",
+        "enable_secondary_text_area": false,
+        "title_2": "",
+        "title_2_style": "h4",
+        "text_2": "",
+        "button_label": "",
+        "button_link": "",
+        "link_new_tab": false,
+        "background_color": "",
+        "text_color": "",
+        "alignment": "center",
+        "text_case": "h6",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "image_with_text_zkazRg": {
+      "type": "image-with-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "image": "shopify://shop_images/SHEIKE_Brauz_StylingAppt1.jpg",
+        "layout": "left",
+        "image_link": "",
+        "title": "",
+        "text": "<p>Looking for something for a special event or just needing a wardrobe update? <br/><br/>We look forward to welcoming you in store* for  complimentary and personal styling appointment. <br/><br/>Bespoke and tailored to you and your <br/>requirements, our stylists will give you their devoted attention to ensure you find the perfect outfit to celebrate your next moment in. </p>",
+        "button_label": "BOOK STYLIST APPOINTMENT",
+        "button_id": "book-appointment-button-1",
+        "button_link": "shopify://collections/new-arrivals",
+        "background_color": "",
+        "text_color": "",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "image_with_text_GQDpkf": {
+      "type": "image-with-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "image": "shopify://shop_images/SHEIKE_Brauz_StylingAppt2.jpg",
+        "layout": "right",
+        "image_link": "",
+        "title": "",
+        "text": "<p>Book a complimentary appointment at a time that is convenient for you. </p><p><br/>*Our styling appointments are currently only available at select stores more stores available soon.</p><p></p><p>Styling appointments are currently available at our Chermside, Highpoint, Mid City, Miranda, Parramatta and Winter Garden stores. ​</p>",
+        "button_label": "BOOK STYLIST APPOINTMENT",
+        "button_id": "book-appointment-button-2",
+        "button_link": "shopify://collections/clothing",
+        "background_color": "",
+        "text_color": "",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "1658029115d381e177": {
+      "type": "accordion",
+      "blocks": {
+        "accordion_igiFwX": {
+          "type": "accordion",
+          "settings": {
+            "title": "What can I expect from a stylist appointment?",
+            "body": "<p>We will offer one-on-one styling tips, tricks and recommendations tailored to you. You will be allocated one of our in store stylists for the duration of your appointment. Expect to leave with the perfect outfit for your next event or brand new wardrobe.​</p>"
+          }
+        },
+        "accordion_fQkj7c": {
+          "type": "accordion",
+          "settings": {
+            "title": "How long will my appointment run for?",
+            "body": "<p>Allocated appointment slots are for up to 60 minutes.</p>"
+          }
+        },
+        "accordion_BKeetc": {
+          "type": "accordion",
+          "settings": {
+            "title": "Will I need to pay for my stylist appointment? ",
+            "body": "<p>We offer complimentary appointments with no costs or minimum spend required. If you like any of the pieces you try on during the appointment, our stylists will place them aside for you to purchase at the end of your styling appointment. </p>"
+          }
+        },
+        "accordion_Wq6ikN": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I cancel or reschedule my appointment?​",
+            "body": "<p>If you are unable to make your appointment time, please follow the instructions in your confirmation email to cancel and reschedule at a new time that suits you.</p>"
+          }
+        },
+        "accordion_fNRyyL": {
+          "type": "accordion",
+          "settings": {
+            "title": "What do I do if I am running late?",
+            "body": "<p>If you are running behind schedule, please give your selected store a call. Store contact numbers can be found here: <a href=\"/pages/sheike-store-locator\" title=\"Store Locator\">Store Locator</a> </p>"
+          }
+        },
+        "accordion_x6L6Xd": {
+          "type": "accordion",
+          "settings": {
+            "title": "Why can't I book an appointment in all stores?",
+            "body": "<p>At the moment, styling appointments are available only in select stores. We are working on making more stores available soon. Keep an eye out for updates in our newsletter (link to subscribe). </p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_igiFwX",
+        "accordion_fQkj7c",
+        "accordion_BKeetc",
+        "accordion_Wq6ikN",
+        "accordion_fNRyyL",
+        "accordion_x6L6Xd"
+      ],
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "title": "FAQs",
+        "open_first": false
+      }
+    },
+    "brauz-book-a-stylist": {
+      "type": "brauz-book-a-stylist",
+      "settings": {
+        "brauz_identifier": "SHEIKE",
+        "brauz_book_a_stylist_script_url": "https://d3aq2u4yw77ivo.cloudfront.net/retailer-appointment/sheike/bookAStylist.sheike.prod.js",
+        "brauz_button_ids": "book-appointment-button-1,book-appointment-button-2"
+      }
+    }
+  },
+  "order": [
+    "top-links",
+    "sidebar",
+    "page_intro_W9fY9b",
+    "main",
+    "rich_text_LnGTHP",
+    "image_with_text_zkazRg",
+    "image_with_text_GQDpkf",
+    "1658029115d381e177",
+    "brauz-book-a-stylist"
+  ]
+}

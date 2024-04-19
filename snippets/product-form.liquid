@@ -1,0 +1,252 @@
+{% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
+  {%- liquid
+    if product.selected_or_first_available_variant.price < product.selected_or_first_available_variant.compare_at_price
+      assign on_sale = true
+    else
+      assign on_sale = false
+    endif
+
+    assign has_size_option = false
+    assign disable_add_button = false
+    unless product.selected_variant or product.has_only_default_variant or product.variants.size == 1
+      for option in product.options
+        assign option_handle = option | handleize
+        if option_handle == 'size'
+          assign has_size_option = true
+          break
+        endif
+      endfor
+
+      if has_size_option
+        assign disable_add_button = true
+      endif
+    endunless
+
+    assign is_not_for_sale = false
+    for tag in product.tags
+      if tag == 'not-for-sale'
+        assign is_not_for_sale = true
+        break
+      endif
+    endfor
+
+    # Low in stock message display
+    assign display_low_in_stock = false
+    assign enable_low_in_stock = section.settings.enable_low_in_stock
+    assign low_in_stock_threshold = section.settings.low_in_stock_threshold
+
+    if enable_low_in_stock and low_in_stock_threshold != blank
+      if current_variant.inventory_management != blank and current_variant.inventory_quantity <= low_in_stock_threshold
+        assign display_low_in_stock = true
+      endif
+    endif
+  -%}
+
+  <h1 class="h2 product__title" data-product-title>{{ product.title }}</h1>
+  <div class="product__price-container {{ pricing_class }}" data-price-wrapper>
+    <span class="h5 product__price" data-product-price>{{ product.selected_or_first_available_variant.price | money }}</span>
+    <span class="h5 product__compare-at-price{% unless on_sale %} hide{% endunless %}" data-product-compare-at-price>
+      {%- if on_sale -%}{{ product.selected_or_first_available_variant.compare_at_price | money }}{%- endif -%}
+    </span>
+  </div>
+
+  {%- if template != 'product.modal' and is_gift_card == false and is_coming_soon == false -%}
+    {% render 'product-payment-options' %}
+  {%- endif -%}
+
+  {%- if is_gift_card -%}
+    <div class="product__tabs">
+      {% render 'product-tabs', enable_care_icons: section_settings.enable_care_icons, is_gift_card: is_gift_card %}
+    </div>
+  {%- endif -%}
+
+  {% unless is_not_for_sale %}
+  <div class="product__actions">
+    {% if is_gift_card %}
+      <p>{{ 'gift_cards.product.personalise_your_message' | t }}</p>
+    {% endif %}
+
+    {% render 'linked-colour-swatches' %}
+
+    {% unless product.has_only_default_variant or product.variants.size == 1 %}
+      {% render 'product-options', is_gift_card: is_gift_card, disable_add_button: disable_add_button %}
+    {% endunless %}
+
+    {% comment %}
+      In order for this form to submit, it needs to contain an input with name="id".
+      ProductForm() will automatically create this input (or make sure it has the
+      right value set if it already exists) on form submit based on the
+      currently selected variant. However, if JS is disabled we need a fallback.
+
+      Include a single <select> element which allows users to select all variants
+      as a fallback and present it only when JS is disabled. In addition,
+      make sure to hide the option inputs declared above, which is done with the
+      .js class which only shows its contents when JS is enabled.
+    {% endcomment %}
+    <noscript class="no-js">
+      <select name="id" data-product-select>
+      {% for variant in product.variants %}
+        {% capture variant_selected %}{% if variant == current_variant %}selected=""{% endif %}{% endcapture %}
+        {% capture variant_available %}{% unless variant.available %}disabled=""{% endunless %}{% endcapture %}
+        <option value="{{ variant.id }}" {{ variant_selected }} {{ variant_available }}>{{ variant.title }}</option>
+      {% endfor %}
+      </select>
+    </noscript>
+
+    {% comment %}
+      Any input with `name="quantity"` will be picked up by ProductForm and
+      registered as a quantity input. If a quantity input is not included, a
+      default quantity of 1 is assumed.
+    {% endcomment %}
+    {% if section_settings.include_qty_selector and template != 'product.modal' %}
+      <div class="quantity-selector quantity-selector--product">
+        <button class="btn-none" type="button" data-decrement-qty aria-label="{{ 'accessibility_labels.decrement_quantity' | t }}" disabled="disabled">
+          {% render 'icon-minus' %}
+        </button>
+        <input required class="qty-input" type="number" id="Quantity" name="quantity" value="1" min="1" aria-label="{{ 'products.product.quantity' | t }}" autocomplete="off" data-qty-input />
+        <button class="btn-none" type="button" data-increment-qty aria-label="{{ 'accessibility_labels.increment_quantity' | t }}">
+          {% render 'icon-plus' %}
+        </button>
+      </div>
+    {% else %}
+      <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
+    {% endif %}
+
+    {% comment %}
+      Line Item property inputs with `name="properties[NAME]"` will be picked up
+      by ProductForm and registered as a properties input.
+    {% endcomment %}
+    {% comment %} <label for="Details">{{ 'products.product.details' | t }}</label>
+    <textarea id="Details" name="properties[Details]"></textarea> {% endcomment %}
+
+    {% if is_gift_card %}
+      <div class="product__gift-card-form" data-gift-card-form>
+        <div class="form__group form__group--floating">
+          <input type="text"
+            name="properties[From]"
+            id="gift-card-from"
+            placeholder="{{ 'gift_cards.product.from' | t }}"
+            required>
+          <label for="gift-card-from">{{ 'gift_cards.product.from' | t }}</label>
+        </div>
+
+        <div class="form__group form__group--floating">
+          <input type="text"
+            name="properties[To]"
+            id="gift-card-to"
+            placeholder="{{ 'gift_cards.product.to' | t }}"
+            required>
+          <label for="gift-card-to">{{ 'gift_cards.product.to' | t }}</label>
+        </div>
+
+        <div class="form__group form__group--floating">
+          <input type="email"
+            name="properties[Recipient Email]"
+            id="gift-card-email"
+            placeholder="{{ 'gift_cards.product.recipient_email' | t }}"
+            required>
+          <label for="gift-card-email">{{ 'gift_cards.product.recipient_email' | t }}</label>
+        </div>
+
+        <div class="form__group form__group--floating">
+          <input type="email"
+            id="gift-card-email-confirm"
+            placeholder="{{ 'gift_cards.product.confirm_recipient_email' | t }}"
+            data-pristine-equals="#gift-card-email"
+            data-pristine-equals-message="{{ 'gift_cards.product.recipient_email_error' | t }}">
+          <label for="gift-card-email-confirm">{{ 'gift_cards.product.confirm_recipient_email' | t }}</label>
+        </div>
+
+        <div class="form__group form__group--floating">
+          <textarea
+            name="properties[Message]"
+            id="gift-card-message"
+            placeholder="{{ 'gift_cards.product.message' | t }}"
+            required></textarea>
+          <label for="gift-card-message">{{ 'gift_cards.product.message' | t }}</label>
+        </div>
+
+        <input type="hidden"
+          name="properties[_Image]"
+          value="{{ product.featured_image | image_url: width: 600 }}"
+          data-gift-card-image-url>
+      </div>
+    {% endif %}
+
+    {% if is_preorder %}
+      <input type="hidden" name="properties[_preorder]" value="true">
+    {% endif %}
+
+    {%- render 'wair-product-page' -%}
+
+    <div class="product__form-buttons btn-container">
+      <button type="submit" class="btn btn--block btn--add-to-cart {% if settings.enable_back_in_stock and current_variant.available == false and disable_add_button == false %} hide{% endif %}{% if disable_add_button %} disabled{% endif %}" name="add" data-add-to-cart{% if disable_add_button %} data-disable-add{% endif %} {% if current_variant.available == false and disable_add_button == false %}disabled=""{% endif %}>
+        {% if disable_add_button %}
+          {{ 'products.product.select_size' | t }}
+        {% else %}
+          {% if current_variant.available %}
+            {% if is_preorder %}
+              {{ 'products.product.preorder' | t }}
+            {% else %}
+              {{ 'products.product.add_to_cart' | t }}
+
+              {% if display_low_in_stock %}
+                {{ 'products.product.low_in_stock' | t }}
+              {% endif %}
+            {% endif %}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        {% endif %}
+      </button>
+    </div>
+
+    {% render 'product-bis-trigger', current_variant: current_variant, disable_add_button: disable_add_button %}
+
+    <div class="product__size-error errors hide" data-size-error></div>
+    <div class="product__size-error-wishlist hide" data-size-error-wishlist></div>
+
+    {% if settings.enable_wishlist and is_gift_card == false %}
+      <button class="product__wishlist-btn btn-none" type="button" data-wishlist-button data-wishlist-action="add">
+        {% render 'icon-heart' %}
+        <span data-wishlist-button-label>{{ 'wishlist.wishlist_add' | t }}</span>
+      </button>
+    {% endif %}
+  </div>
+
+  {% endunless %}
+
+  {%- if template != 'product.modal' and is_gift_card == false -%}
+    <div class="product__tabs">
+      {% render 'product-tabs', enable_care_icons: section_settings.enable_care_icons, is_gift_card: is_gift_card %}
+    </div>
+  {%- endif -%}
+
+  {%- if settings.enable_reloop -%}
+    {%- liquid
+      # Conditionally show skeleton
+      # - If product price is less than $50, show skeleton
+      # - Otherwise, check if product title contains any of the loop_exclusion_keywords
+
+      assign show_skeleton = true
+      if product.price < 5000
+        assign show_skeleton = false
+      else
+        assign product_title_downcase = product.title | downcase
+        assign loop_exclusion_keywords = settings.loop_exclusion_keywords | downcase | replace: ', ', ',' | split: ','
+        for keyword in loop_exclusion_keywords
+          if product_title_downcase contains keyword
+            assign show_skeleton = false
+            break
+          endif
+        endfor
+      endif
+    -%}
+
+    {%- if show_skeleton -%}
+      <div class="reloop-skeleton">
+        <div class="reloop-skeleton__inner"></div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+{% endform %}

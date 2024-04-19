@@ -1,0 +1,191 @@
+{
+  "wrapper": "div.page__template-information",
+  "sections": {
+    "top-links": {
+      "type": "information-page-top-links",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "sidebar": "information_template_sidebar"
+      }
+    },
+    "sidebar": {
+      "type": "information-page-sidebar",
+      "disabled": true,
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "sidebar": "information_template_sidebar"
+      }
+    },
+    "page_intro_W9fY9b": {
+      "type": "page-intro",
+      "disabled": true,
+      "settings": { "enable_mobile": true, "enable_desktop": true }
+    },
+    "rich_text_LnGTHP": {
+      "type": "rich-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "title": "",
+        "title_1_style": "h4",
+        "text": "<h1>RESERVE IN STORE</h1>",
+        "enable_secondary_text_area": false,
+        "title_2": "",
+        "title_2_style": "h4",
+        "text_2": "",
+        "button_label": "",
+        "button_link": "",
+        "link_new_tab": false,
+        "background_color": "",
+        "text_color": "",
+        "alignment": "center",
+        "text_case": "h6",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "image_with_text_zkazRg": {
+      "type": "image-with-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "image": "shopify://shop_images/SHEIKE_Brauz_Reserve2.jpg",
+        "layout": "right",
+        "image_link": "",
+        "title": "",
+        "text": "<p>Something special caught your eye? ​<br/><br/>Browse online and reserve your favourite items to try and pick up at your convenience.​​<br/><br/>Simply click ‘Reserve In Store’ to select your preferred store, date and time frame. </p>",
+        "button_label": "",
+        "button_id": "",
+        "button_link": "",
+        "background_color": "",
+        "text_color": "",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "image_with_text_GQDpkf": {
+      "type": "image-with-text",
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "image": "shopify://shop_images/SHEIKE_Brauz_Reserve1.jpg",
+        "layout": "left",
+        "image_link": "",
+        "title": "",
+        "text": "<p>Want to book a complimentary stylist appointment instead? <br/><br/>​​​​Book your appointment online to meet one of our expert stylists at your preferred store, date and time. <br/><br/><em>At this time, Reserve In Store is only available at SHEIKE Miranda, Parramatta, Mid City, Highpoint, Chermside and Winter Garden stores only. More stores available soon. </em>​</p>",
+        "button_label": "BOOK STYLIST APPOINTMENT",
+        "button_id": "book-appointment-button",
+        "button_link": "shopify://collections/new-arrivals",
+        "background_color": "",
+        "text_color": "",
+        "margin_top_mobile": "none",
+        "margin_top_desktop": "none",
+        "margin_bottom_mobile": "none",
+        "margin_bottom_desktop": "none"
+      }
+    },
+    "1658029115d381e177": {
+      "type": "accordion",
+      "blocks": {
+        "accordion_VjbmGD": {
+          "type": "accordion",
+          "settings": {
+            "title": "What happens if I can’t arrive within my designated time slot? ​",
+            "body": "<p>If you are running late, or would like to change your reservation slot, please call your store via the number in your confirmation email.</p>"
+          }
+        },
+        "accordion_igiFwX": {
+          "type": "accordion",
+          "settings": {
+            "title": "Why can't I reserve a style in all stores?",
+            "body": "<p>At the moment, Reserve In Store is available only in select stores. We are working on making more stores available soon. Keep an eye out for updates in our newsletter</p>"
+          }
+        },
+        "accordion_x6L6Xd": {
+          "type": "accordion",
+          "settings": {
+            "title": "How long will the item be held for?",
+            "body": "<p>The item will be held for the entire 2-hour time slot you have selected on your reservation date.</p>"
+          }
+        },
+        "accordion_Wq6ikN": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I reschedule?",
+            "body": "<p>You can always reschedule by completing the reservation process again on the product page, or calling your selected store if the reschedule will be for later that same day.​</p>"
+          }
+        },
+        "accordion_fNRyyL": {
+          "type": "accordion",
+          "settings": {
+            "title": "How do I reserve multiple styles?",
+            "body": "<p>To avoid stock becoming unavailable, we only allow 1 style per reservation request entry.​If you would like to reserve another product, please go to that styles product page and complete the reservation process.</p>"
+          }
+        },
+        "accordion_fQdr99": {
+          "type": "accordion",
+          "settings": { "title": "Accordion title", "body": "" }
+        }
+      },
+      "block_order": [
+        "accordion_VjbmGD",
+        "accordion_igiFwX",
+        "accordion_x6L6Xd",
+        "accordion_Wq6ikN",
+        "accordion_fNRyyL",
+        "accordion_fQdr99"
+      ],
+      "settings": {
+        "enable_mobile": true,
+        "enable_desktop": true,
+        "title": "FAQs",
+        "open_first": false
+      }
+    },
+    "main": {
+      "type": "information-page-content",
+      "blocks": {
+        "736113e3-2916-44d3-a0d9-746d02b51eda": {
+          "type": "button",
+          "settings": {
+            "title": "Visit the Afterpay website",
+            "url": "https://www.afterpay.com/en-AU",
+            "style": "btn",
+            "icon": "false"
+          }
+        },
+        "5e5f6c90-7755-4416-8b66-7bfddfd0719d": {
+          "type": "button",
+          "settings": {
+            "title": "Contact customer service",
+            "url": "https://helpdesk.sheike.com.au/hc/en-us",
+            "style": "btn",
+            "icon": "false"
+          }
+        }
+      },
+      "block_order": [
+        "736113e3-2916-44d3-a0d9-746d02b51eda",
+        "5e5f6c90-7755-4416-8b66-7bfddfd0719d"
+      ],
+      "disabled": true,
+      "settings": { "enable_mobile": true, "enable_desktop": true }
+    }
+  },
+  "order": [
+    "top-links",
+    "sidebar",
+    "page_intro_W9fY9b",
+    "rich_text_LnGTHP",
+    "image_with_text_zkazRg",
+    "image_with_text_GQDpkf",
+    "1658029115d381e177",
+    "main"
+  ]
+}
