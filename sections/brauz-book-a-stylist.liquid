@@ -1,0 +1,36 @@
+<script>
+  const script = document.createElement("script");
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "{{ settings.brauz_book_a_stylist_script_url }}");
+  document.body.appendChild(script);
+  script.onload = function(){
+    window.Brauz.initializeBrauzBookAStylist("{{ settings.brauz_identifier }}");
+
+    let brauz_button_ids = "{{ section.settings.brauz_button_ids }}";
+    brauz_button_ids = brauz_button_ids.split(",").map(id => id.trim()).filter(id => id);
+
+    brauz_button_ids.forEach(brauz_button_id => {
+      const book_appointment_button = document.getElementById(brauz_button_id);
+
+      if(book_appointment_button){
+        book_appointment_button.addEventListener("click", function(e){
+          e.preventDefault();
+          window.Brauz_open_book_a_stylist_dialog();
+        })
+      }
+    })
+  };
+</script>
+
+{% schema %}
+  {
+    "name": "Brauz Book A Stylist",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brauz_button_ids",
+        "label": "Button IDs (Seperated by ',')"
+      }
+    ]
+  }
+{% endschema %}
