@@ -200,19 +200,21 @@
         {% endif %}
       </button>
       
-      <div
-        id="brauz-find-in-store-config-product-page"
-        data-sd="{{ shop.permanent_domain }}"
-        data-cvi="{{ product.first_available_variant.id }}"
-        data-hodv="{{ product.has_only_default_variant }}"
-        style="display: none; width: 0"
-      ></div>
-      <div id="brauz-find-in-store-product-page"></div>
-      <script src="{{ settings.brauz_find_in_store_script_url }}" async></script>
+      {% if is_gift_card == false %}
+        <div
+          id="brauz-find-in-store-config-product-page"
+          data-sd="{{ shop.permanent_domain }}"
+          data-cvi="{{ product.first_available_variant.id }}"
+          data-hodv="{{ product.has_only_default_variant }}"
+          style="display: none; width: 0"
+        ></div>
+        <div id="brauz-find-in-store-product-page"></div>
+        <script src="{{ settings.brauz_find_in_store_script_url }}" async></script>
 
-      <button type="button" class="btn btn--block btn--find-and-reserve-in-store {% if settings.enable_back_in_stock and current_variant.available == false and disable_add_button == false %} hide{% endif %}{% if disable_add_button %} disabled{% endif %}" name="add" data-add-to-cart{% if disable_add_button %} data-disable-add{% endif %} {% if current_variant.available == false and disable_add_button == false %}disabled=""{% endif %} onclick="window.Brauz_open_reserve_in_store_dialog()">
-        FIND & RESERVE IN STORE
-      </button>
+        <button type="button" class="btn btn--block btn--find-and-reserve-in-store {% if settings.enable_back_in_stock and current_variant.available == false and disable_add_button == false %} hide{% endif %}{% if disable_add_button %} disabled{% endif %}" name="add" data-add-to-cart{% if disable_add_button %} data-disable-add{% endif %} {% if current_variant.available == false and disable_add_button == false %}disabled=""{% endif %} onclick="window.Brauz_open_reserve_in_store_dialog()">
+          FIND & RESERVE IN STORE
+        </button>
+      {% endif %}
     </div>
 
     {% render 'product-bis-trigger', current_variant: current_variant, disable_add_button: disable_add_button %}
@@ -228,19 +230,21 @@
         </button>
       {% endif %}
 
-      <script>
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        script.setAttribute("src", "{{ settings.brauz_book_a_stylist_script_url }}");
-        script.setAttribute("async", true);
-        document.body.appendChild(script);
-        script.onload = function(){
-          window.Brauz.initializeBrauzBookAStylist("{{ settings.brauz_identifier }}");
-        };
-      </script>
-      <button class="btn--book-a-stylist btn-none" type="button" onclick="window.Brauz_open_book_a_stylist_dialog()">
-        Book a Stylist
-      </button>
+      {% if is_gift_card == false %}
+        <script>
+          var script = document.createElement("script");
+          script.setAttribute("type", "text/javascript");
+          script.setAttribute("src", "{{ settings.brauz_book_a_stylist_script_url }}");
+          script.setAttribute("async", true);
+          document.body.appendChild(script);
+          script.onload = function(){
+            window.Brauz.initializeBrauzBookAStylist("{{ settings.brauz_identifier }}");
+          };
+        </script>
+        <button class="btn--book-a-stylist btn-none" type="button" onclick="window.Brauz_open_book_a_stylist_dialog()">
+          Book a Stylist
+        </button>
+      {% endif %}
     </div>
   </div>
 
